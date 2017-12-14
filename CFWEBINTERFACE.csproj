@@ -1,0 +1,755 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CF15A8A2-7B39-46D5-B3C2-1CD49197BB55}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CFWEBINTERFACE</RootNamespace>
+    <AssemblyName>CFWEBINTERFACE</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;ENTITY;ORACLE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PublishDatabases>false</PublishDatabases>
+    <ExcludeGeneratedDebugSymbol>false</ExcludeGeneratedDebugSymbol>
+    <IncludeIisSettings>false</IncludeIisSettings>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>ENTITY;ORACLE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PublishDatabases>false</PublishDatabases>
+    <ExcludeGeneratedDebugSymbol>true</ExcludeGeneratedDebugSymbol>
+    <IncludeIisSettings>true</IncludeIisSettings>
+    <IncludeAppPool>false</IncludeAppPool>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.0.1011, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.1.2.3\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.1.2.3\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.1.2.3\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.1.2.3\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.1.2.3\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=1.2.3.490, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.1.2.3\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Oracle.ManagedDataAccess, Version=4.121.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <HintPath>..\packages\Oracle.ManagedDataAccess.12.1.2400\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess.EntityFramework, Version=6.121.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <HintPath>..\packages\Oracle.ManagedDataAccess.EntityFramework.12.1.2400\lib\net45\Oracle.ManagedDataAccess.EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="AspNet.ScriptManager.bootstrap">
+      <HintPath>..\packages\AspNet.ScriptManager.bootstrap.3.0.0\lib\net45\AspNet.ScriptManager.bootstrap.dll</HintPath>
+    </Reference>
+    <Reference Include="AspNet.ScriptManager.jQuery">
+      <HintPath>..\packages\AspNet.ScriptManager.jQuery.1.10.2\lib\net45\AspNet.ScriptManager.jQuery.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ScriptManager.MSAjax">
+      <HintPath>..\packages\Microsoft.AspNet.ScriptManager.MSAjax.5.0.0\lib\net45\Microsoft.ScriptManager.MSAjax.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ScriptManager.WebForms">
+      <HintPath>..\packages\Microsoft.AspNet.ScriptManager.WebForms.5.0.0\lib\net45\Microsoft.ScriptManager.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <Private>True</Private>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Web.Optimization.WebForms">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.WebForms.1.1.3\lib\net45\Microsoft.AspNet.Web.Optimization.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.FriendlyUrls">
+      <HintPath>..\packages\Microsoft.AspNet.FriendlyUrls.Core.1.0.2\lib\net45\Microsoft.AspNet.FriendlyUrls.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="imagens\" />
+    <Folder Include="sistema\" />
+    <Folder Include="xml\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="About.aspx" />
+    <Content Include="App_Data\XMLFile1.xml" />
+    <Content Include="com\comcondicaoM.aspx" />
+    <Content Include="com\comcondicaoP.aspx" />
+    <Content Include="com\comoperacaoM.aspx" />
+    <Content Include="com\comoperacaoP.aspx" />
+    <Content Include="com\compedidoitemM.aspx" />
+    <Content Include="com\compedidoitemP.aspx" />
+    <Content Include="com\compedidoM.aspx" />
+    <Content Include="com\compedidoP.aspx" />
+    <Content Include="com\comprecoitemM.aspx" />
+    <Content Include="com\comprecoitemP.aspx" />
+    <Content Include="com\comprecoM.aspx" />
+    <Content Include="com\comprecoP.aspx" />
+    <Content Include="Contact.aspx" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="css\sge.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="geo\geocidadeM.aspx" />
+    <Content Include="geo\geocidadeP.aspx" />
+    <Content Include="geo\geocontinenteM.aspx" />
+    <Content Include="geo\geocontinenteP.aspx" />
+    <Content Include="geo\geoenderecoM.aspx" />
+    <Content Include="geo\geoenderecoP.aspx" />
+    <Content Include="geo\geopaisM.aspx" />
+    <Content Include="geo\geopaisP.aspx" />
+    <Content Include="geo\geoufM.aspx" />
+    <Content Include="geo\geoufP.aspx" />
+    <Content Include="itt\ittpessoaM.aspx" />
+    <Content Include="itt\ittpessoaP.aspx" />
+    <Content Include="master\MasterLogin.Master" />
+    <EmbeddedResource Include="App_GlobalResources\cfLanguage.en-US.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>cfLanguage.en-US.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\cfLanguage.pt-BR.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>cfLanguage.pt-BR.designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\cfLanguage.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>cfLanguage.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="Properties\PublishProfiles\localhost.pubxml" />
+    <None Include="Properties\PublishProfiles\web localhost.pubxml" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="inicio.aspx" />
+    <Content Include="javascript\cf_lib.js" />
+    <Content Include="master\WebForm1.aspx" />
+    <Content Include="mat\matclasseM.aspx" />
+    <Content Include="mat\matclasseP.aspx" />
+    <Content Include="mat\matembaladoM.aspx" />
+    <Content Include="mat\matembaladoP.aspx" />
+    <Content Include="mat\matembalagemM.aspx" />
+    <Content Include="mat\matembalagemP.aspx" />
+    <Content Include="mat\matestoqueM.aspx" />
+    <Content Include="mat\matestoqueP.aspx" />
+    <Content Include="mat\matlocalM.aspx" />
+    <Content Include="mat\matlocalP.aspx" />
+    <Content Include="mat\matpedidoitemM.aspx" />
+    <Content Include="mat\matpedidoM.aspx" />
+    <Content Include="mat\matprodutoM.aspx" />
+    <Content Include="mat\matprodutoP.aspx" />
+    <Content Include="mat\matunidademedidaM.aspx" />
+    <Content Include="mat\matunidademedidaP.aspx" />
+    <Content Include="Scripts\ai.0.15.0-build58334.js" />
+    <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\WebForms\DetailsView.js" />
+    <Content Include="Scripts\WebForms\Focus.js" />
+    <Content Include="Scripts\WebForms\GridView.js" />
+    <Content Include="Scripts\WebForms\Menu.js" />
+    <Content Include="Scripts\WebForms\MenuStandards.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjax.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxApplicationServices.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxComponentModel.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxCore.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxGlobalization.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxHistory.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxNetwork.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxSerialization.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxTimer.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxWebForms.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxWebServices.js" />
+    <Content Include="Scripts\WebForms\SmartNav.js" />
+    <Content Include="Scripts\WebForms\TreeView.js" />
+    <Content Include="Scripts\WebForms\WebForms.js" />
+    <Content Include="Scripts\WebForms\WebParts.js" />
+    <Content Include="Scripts\WebForms\WebUIValidation.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Default.aspx" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="seguro\LoginM.aspx" />
+    <Content Include="seg\segusuarioM.aspx" />
+    <Content Include="seg\segusuarioP.aspx" />
+    <Content Include="Site.Master" />
+    <Content Include="ViewSwitcher.ascx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Bundle.config" />
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Site.Mobile.Master" />
+    <Content Include="master\MasterMenu.Master" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_GlobalResources\cfLanguage.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>cfLanguage.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\cfLanguage.en-US.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>cfLanguage.en-US.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\cfLanguage.pt-BR.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>cfLanguage.pt-BR.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="About.aspx.designer.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="com\comcondicaoM.aspx.cs">
+      <DependentUpon>comcondicaoM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="com\comcondicaoM.aspx.designer.cs">
+      <DependentUpon>comcondicaoM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="com\comcondicaoP.aspx.cs">
+      <DependentUpon>comcondicaoP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="com\comcondicaoP.aspx.designer.cs">
+      <DependentUpon>comcondicaoP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="com\comoperacaoM.aspx.cs">
+      <DependentUpon>comoperacaoM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="com\comoperacaoM.aspx.designer.cs">
+      <DependentUpon>comoperacaoM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="com\comoperacaoP.aspx.cs">
+      <DependentUpon>comoperacaoP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="com\comoperacaoP.aspx.designer.cs">
+      <DependentUpon>comoperacaoP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="com\compedidoitemM.aspx.cs">
+      <DependentUpon>compedidoitemM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="com\compedidoitemM.aspx.designer.cs">
+      <DependentUpon>compedidoitemM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="com\compedidoitemP.aspx.cs">
+      <DependentUpon>compedidoitemP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="com\compedidoitemP.aspx.designer.cs">
+      <DependentUpon>compedidoitemP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="com\compedidoM.aspx.cs">
+      <DependentUpon>compedidoM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="com\compedidoM.aspx.designer.cs">
+      <DependentUpon>compedidoM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="com\compedidoP.aspx.cs">
+      <DependentUpon>compedidoP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="com\compedidoP.aspx.designer.cs">
+      <DependentUpon>compedidoP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="com\comprecoitemM.aspx.cs">
+      <DependentUpon>comprecoitemM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="com\comprecoitemM.aspx.designer.cs">
+      <DependentUpon>comprecoitemM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="com\comprecoitemP.aspx.cs">
+      <DependentUpon>comprecoitemP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="com\comprecoitemP.aspx.designer.cs">
+      <DependentUpon>comprecoitemP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="com\comprecoM.aspx.cs">
+      <DependentUpon>comprecoM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="com\comprecoM.aspx.designer.cs">
+      <DependentUpon>comprecoM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="com\comprecoP.aspx.cs">
+      <DependentUpon>comprecoP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="com\comprecoP.aspx.designer.cs">
+      <DependentUpon>comprecoP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Contact.aspx.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Contact.aspx.designer.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="geo\geocidadeM.aspx.cs">
+      <DependentUpon>geocidadeM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="geo\geocidadeM.aspx.designer.cs">
+      <DependentUpon>geocidadeM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="geo\geocidadeP.aspx.cs">
+      <DependentUpon>geocidadeP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="geo\geocidadeP.aspx.designer.cs">
+      <DependentUpon>geocidadeP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="geo\geocontinenteM.aspx.cs">
+      <DependentUpon>geocontinenteM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="geo\geocontinenteM.aspx.designer.cs">
+      <DependentUpon>geocontinenteM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="geo\geocontinenteP.aspx.cs">
+      <DependentUpon>geocontinenteP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="geo\geocontinenteP.aspx.designer.cs">
+      <DependentUpon>geocontinenteP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="geo\geoenderecoM.aspx.cs">
+      <DependentUpon>geoenderecoM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="geo\geoenderecoM.aspx.designer.cs">
+      <DependentUpon>geoenderecoM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="geo\geoenderecoP.aspx.cs">
+      <DependentUpon>geoenderecoP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="geo\geoenderecoP.aspx.designer.cs">
+      <DependentUpon>geoenderecoP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="geo\geopaisM.aspx.cs">
+      <DependentUpon>geopaisM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="geo\geopaisM.aspx.designer.cs">
+      <DependentUpon>geopaisM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="geo\geopaisP.aspx.cs">
+      <DependentUpon>geopaisP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="geo\geopaisP.aspx.designer.cs">
+      <DependentUpon>geopaisP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="geo\geoufM.aspx.cs">
+      <DependentUpon>geoufM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="geo\geoufM.aspx.designer.cs">
+      <DependentUpon>geoufM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="geo\geoufP.aspx.cs">
+      <DependentUpon>geoufP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="geo\geoufP.aspx.designer.cs">
+      <DependentUpon>geoufP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="inicio.aspx.cs">
+      <DependentUpon>inicio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="inicio.aspx.designer.cs">
+      <DependentUpon>inicio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="itt\ittpessoaM.aspx.cs">
+      <DependentUpon>ittpessoaM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="itt\ittpessoaM.aspx.designer.cs">
+      <DependentUpon>ittpessoaM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="itt\ittpessoaP.aspx.cs">
+      <DependentUpon>ittpessoaP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="itt\ittpessoaP.aspx.designer.cs">
+      <DependentUpon>ittpessoaP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="master\MasterLogin.Master.cs">
+      <DependentUpon>MasterLogin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="master\MasterLogin.Master.designer.cs">
+      <DependentUpon>MasterLogin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="master\WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="master\WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mat\matclasseM.aspx.cs">
+      <DependentUpon>matclasseM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mat\matclasseM.aspx.designer.cs">
+      <DependentUpon>matclasseM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mat\matclasseP.aspx.cs">
+      <DependentUpon>matclasseP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mat\matclasseP.aspx.designer.cs">
+      <DependentUpon>matclasseP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mat\matembaladoM.aspx.cs">
+      <DependentUpon>matembaladoM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mat\matembaladoM.aspx.designer.cs">
+      <DependentUpon>matembaladoM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mat\matembaladoP.aspx.cs">
+      <DependentUpon>matembaladoP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mat\matembaladoP.aspx.designer.cs">
+      <DependentUpon>matembaladoP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mat\matembalagemM.aspx.cs">
+      <DependentUpon>matembalagemM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mat\matembalagemM.aspx.designer.cs">
+      <DependentUpon>matembalagemM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mat\matembalagemP.aspx.cs">
+      <DependentUpon>matembalagemP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mat\matembalagemP.aspx.designer.cs">
+      <DependentUpon>matembalagemP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mat\matestoqueM.aspx.cs">
+      <DependentUpon>matestoqueM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mat\matestoqueM.aspx.designer.cs">
+      <DependentUpon>matestoqueM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mat\matestoqueP.aspx.cs">
+      <DependentUpon>matestoqueP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mat\matestoqueP.aspx.designer.cs">
+      <DependentUpon>matestoqueP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mat\matlocalM.aspx.cs">
+      <DependentUpon>matlocalM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mat\matlocalM.aspx.designer.cs">
+      <DependentUpon>matlocalM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mat\matlocalP.aspx.cs">
+      <DependentUpon>matlocalP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mat\matlocalP.aspx.designer.cs">
+      <DependentUpon>matlocalP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mat\matpedidoitemM.aspx.cs">
+      <DependentUpon>matpedidoitemM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mat\matpedidoitemM.aspx.designer.cs">
+      <DependentUpon>matpedidoitemM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mat\matpedidoM.aspx.cs">
+      <DependentUpon>matpedidoM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mat\matpedidoM.aspx.designer.cs">
+      <DependentUpon>matpedidoM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mat\matprodutoM.aspx.cs">
+      <DependentUpon>matprodutoM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mat\matprodutoM.aspx.designer.cs">
+      <DependentUpon>matprodutoM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mat\matprodutoP.aspx.cs">
+      <DependentUpon>matprodutoP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mat\matprodutoP.aspx.designer.cs">
+      <DependentUpon>matprodutoP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mat\matunidademedidaM.aspx.cs">
+      <DependentUpon>matunidademedidaM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mat\matunidademedidaM.aspx.designer.cs">
+      <DependentUpon>matunidademedidaM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mat\matunidademedidaP.aspx.cs">
+      <DependentUpon>matunidademedidaP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mat\matunidademedidaP.aspx.designer.cs">
+      <DependentUpon>matunidademedidaP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="seguro\LoginM.aspx.cs">
+      <DependentUpon>LoginM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="seguro\LoginM.aspx.designer.cs">
+      <DependentUpon>LoginM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="master\MasterMenu.Master.cs">
+      <DependentUpon>MasterMenu.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="master\MasterMenu.Master.designer.cs">
+      <DependentUpon>MasterMenu.Master</DependentUpon>
+    </Compile>
+    <Compile Include="seg\segusuarioM.aspx.cs">
+      <DependentUpon>segusuarioM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="seg\segusuarioM.aspx.designer.cs">
+      <DependentUpon>segusuarioM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="seg\segusuarioP.aspx.cs">
+      <DependentUpon>segusuarioP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="seg\segusuarioP.aspx.designer.cs">
+      <DependentUpon>segusuarioP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Site.Mobile.Master.cs">
+      <DependentUpon>Site.Mobile.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Mobile.Master.designer.cs">
+      <DependentUpon>Site.Mobile.Master</DependentUpon>
+    </Compile>
+    <Compile Include="ViewSwitcher.ascx.cs">
+      <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewSwitcher.ascx.designer.cs">
+      <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\CFDADOSBASE\CFDADOSBASE\CFDADOSBASE.csproj">
+      <Project>{24a83ae2-935a-4d2e-9ea9-947627403588}</Project>
+      <Name>CFDADOSBASE</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\CFDADOSEF\CFDADOSEF\CFDADOSEF.csproj">
+      <Project>{c8a0b3ff-08ab-4631-9aa3-87c7abb27226}</Project>
+      <Name>CFDADOSEF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\CFENUM\CFENUM\CFENUM.csproj">
+      <Project>{4fab6184-867d-4adf-9178-d79edf945aed}</Project>
+      <Name>CFENUM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\CFUIWEB\CFUIWEB.csproj">
+      <Project>{e4e148f3-3bd4-48f9-bade-4787296cabd7}</Project>
+      <Name>CFUIWEB</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\CFUTIL\CUTIL\CFUTIL.csproj">
+      <Project>{981d9893-eb43-4508-a67a-19b9bd05b307}</Project>
+      <Name>CFUTIL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\solucaoCFDADOS\Dados\CFDADOS.csproj">
+      <Project>{8d7d5279-f20b-439c-8de5-f666f88a47eb}</Project>
+      <Name>CFDADOS</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\LoginM.aspx.resx" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <SaveServerSettingsInUserFile>True</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
